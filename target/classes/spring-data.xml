@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/data/repository
+        http://www.springframework.org/schema/data/repository/spring-repository-1.5.xsd"
+	default-autowire="byName">
+
+	<!-- Etape 0 : Configuration Annotations -->
+
+	<context:annotation-config />
+
+	<!-- Etape 1 : Base de donnees = PPC + dataSource -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="usineRepository" class="fr.saintgobain.repositories.UsineRepository">
+	</bean>
+	<bean id="usineDaoImpl" class="fr.saintgobain.daoImpl.UsineDaoImpl">
+		<property name="usineRepository" ref="usineRepository" />
+	</bean>
+
+	<bean id="criseRepository" class="fr.saintgobain.repositories.CriseRepository">
+	</bean>
+	<bean id="criseDaoImpl" class="fr.saintgobain.daoImpl.CriseDaoImpl">
+		<property name="criseRepository" ref="criseRepository" />
+	</bean>
+
+	<bean id="lotRepository" class="fr.saintgobain.repositories.LotRepository">
+	</bean>
+	<bean id="lotDaoImpl" class="fr.saintgobain.daoImpl.LotDaoImpl">
+		<property name="lotRepository" ref="lotRepository" />
+	</bean>
+
+	<bean id="defautRepository" class="fr.saintgobain.repositories.DefautRepository">
+	</bean>
+	<bean id="defautDaoImpl" class="fr.saintgobain.daoImpl.DefautDaoImpl">
+		<property name="defautRepository" ref="defautRepository" />
+	</bean>
+
+
+	<bean id="centreanalyseRepository" class="fr.saintgobain.repositories.CentreanalyseRepository">
+	</bean>
+	<bean id="centreanalyseDaoImpl" class="fr.saintgobain.daoImpl.CentreanalyseDaoImpl">
+		<property name="centreanalyseRepository" ref="centreanalyseRepository" />
+	</bean>
+
+
+	<bean id="etudeRepository" class="fr.saintgobain.repositories.EtudeRepository">
+	</bean>
+	<bean id="etudeDaoImpl" class="fr.saintgobain.daoImpl.EtudeDaoImpl">
+		<property name="etudeRepository" ref="etudeRepository" />
+	</bean>
+
+	<bean id="utilisateurRepository" class="fr.saintgobain.repositories.UtilisateurRepository">
+	</bean>
+	<bean id="utilisateurDaoImpl" class="fr.saintgobain.daoImpl.UtilisateurDaoImpl">
+		<property name="utilisateurRepository" ref="utilisateurRepository" />
+	</bean>
+
+	<!-- <bean id="defautDao" class="com.objis.spring.dao.DefautDao"> <property 
+		name="name" value="Joe"></property> </bean> -->
+
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+	<!-- Etape 2 : EntityManager -->
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="fr.saintgobain.entities" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="MYSQL" />
+				<property name="generateDdl" value="false" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Etape 3 : TransactionManager -->
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+
+	<!-- Etape 4 : specifier ou sont les interfaces -->
+	<jpa:repositories base-package="fr.saintgobain.repositories" />
+
+
+   
+
+
+</beans>

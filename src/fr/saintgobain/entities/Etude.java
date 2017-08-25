@@ -1,0 +1,107 @@
+package fr.saintgobain.entities;
+
+
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
+@Entity
+public class Etude implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int idetude;
+	private String progression;
+	private Date studiesdate;
+	private String commentdelay;
+	private String typedefault;
+	
+	@OneToOne(mappedBy="etude")  // référence la relation dans la classe Document
+    private Document document ;
+	
+	
+	public Etude() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Etude( String progression, Date studiesdate, String commentdelay, String typedefault,
+			Document document) {
+		super();
+		
+		this.progression = progression;
+		this.studiesdate = studiesdate;
+		this.commentdelay = commentdelay;
+		this.typedefault = typedefault;
+		this.document = document;
+	}
+
+
+
+	public Document getDocument() {
+		return document;
+	}
+
+
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+
+
+
+	public int getIdetude() {
+		return idetude;
+	}
+	public void setIdetude(int idetude) {
+		this.idetude = idetude;
+	}
+	public String getProgression() {
+		return progression;
+	}
+	public void setProgression(String progression) {
+		this.progression = progression;
+	}
+	public Date getStudiesdate() {
+		return studiesdate;
+	}
+	public void setStudiesdate(Date studiesdate) {
+		this.studiesdate = studiesdate;
+	}
+	public String getCommentdelay() {
+		return commentdelay;
+	}
+	public void setCommentdelay(String commentdelay) {
+		this.commentdelay = commentdelay;
+	}
+	public String getTypedefault() {
+		return typedefault;
+	}
+	public void setTypedefault(String typedefault) {
+		this.typedefault = typedefault;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Etude [idetude=" + idetude + ", progression=" + progression + ", studiesdate=" + studiesdate
+				+ ", commentdelay=" + commentdelay + ", typedefault=" + typedefault + ", document=" + document + "]";
+	}
+	
+	
+	
+
+
+}
