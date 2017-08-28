@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 @Entity
 public class Document implements Serializable{
 	/**
@@ -20,9 +19,7 @@ public class Document implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int iddoc;
 	private String chemainserveur;
-	
-	@OneToOne
-    private Etude etude ;
+	private int etude_idetude;
 	
 	
 	public Document() {
@@ -32,24 +29,18 @@ public class Document implements Serializable{
 
 
 
-	public Document(int iddoc, String chemainserveur, Etude etude) {
+
+
+
+	public Document(int iddoc, String chemainserveur, int etude_idetude) {
 		super();
 		this.iddoc = iddoc;
 		this.chemainserveur = chemainserveur;
-		this.etude = etude;
-	}
-	
-	
-	
-	public Etude getEtude() {
-		return etude;
+		this.etude_idetude = etude_idetude;
 	}
 
 
 
-	public void setEtude(Etude etude) {
-		this.etude = etude;
-	}
 
 
 
@@ -72,10 +63,24 @@ public class Document implements Serializable{
 
 
 
-	@Override
-	public String toString() {
-		return "Document [iddoc=" + iddoc + ", chemainserveur=" + chemainserveur + ", etude=" + etude + "]";
+
+
+
+	public int getEtude_idetude() {
+		return etude_idetude;
 	}
+
+
+
+
+
+
+	public void setEtude_idetude(int etude_idetude) {
+		this.etude_idetude = etude_idetude;
+	}
+
+
+
 	
 	
 	

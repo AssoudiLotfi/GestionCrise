@@ -25,17 +25,20 @@ public class Lot implements Serializable{
 	private String billing;
 	private String dtipriority;
 	private String parcelnumber;
+	private int crise_idcrise;
 
 	
 	public Lot() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
 	
-	public Lot( String progression, String centreanalyse, String levelemergency, String emergencycomment,
-			String billing, String dtipriority, String parcelnumber) {
+	public Lot(int idlot, String progression, String centreanalyse, String levelemergency, String emergencycomment,
+			String billing, String dtipriority, String parcelnumber, int crise_idcrise) {
 		super();
-		
+		this.idlot = idlot;
 		this.progression = progression;
 		this.centreanalyse = centreanalyse;
 		this.levelemergency = levelemergency;
@@ -43,10 +46,11 @@ public class Lot implements Serializable{
 		this.billing = billing;
 		this.dtipriority = dtipriority;
 		this.parcelnumber = parcelnumber;
-		
+		this.crise_idcrise = crise_idcrise;
 	}
 
-	
+
+
 	public int getIdlot() {
 		return idlot;
 	}
@@ -95,6 +99,18 @@ public class Lot implements Serializable{
 	}
 	public void setParcelnumber(String parcelnumber) {
 		this.parcelnumber = parcelnumber;
+	}
+
+
+
+	public int getCrise_idcrise() {
+		return crise_idcrise;
+	}
+
+
+
+	public void setCrise_idcrise(int crise_idcrise) {
+		this.crise_idcrise = crise_idcrise;
 	}
 
 	

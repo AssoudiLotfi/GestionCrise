@@ -3,7 +3,6 @@ package fr.saintgobain.rest;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -46,10 +45,10 @@ public class CriseService {
 	}
 	@POST
 	@Path("/savecrise")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void saveCrise(Crise crise ){
+	@Produces(MediaType.APPLICATION_JSON)
+	public Crise saveCrise(Crise crise ){
 		
-		criseDaoImpl.createCrise(crise);
+		return criseDaoImpl.createCrise(crise);
 	}
 	
 

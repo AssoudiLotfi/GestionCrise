@@ -35,6 +35,7 @@ public class Defaut implements Serializable {
 	private String subfamiliessgr;
 	private String microstructuresgr;
 	private String commentsgr;
+	private int lot_idlot;
 
 
 	public Defaut() {
@@ -44,12 +45,13 @@ public class Defaut implements Serializable {
 	}
 
 	
-	public Defaut(int idantares, String progression, Date defaultdate, int alignment,
+	
+	public Defaut(int iddefaut, int idantares, String progression, Date defaultdate, int alignment,
 			String positionthickness, String positionedge, String positionleft, String ag3, String ag4, String barrage,
 			int classdefault, String diagnosisfactory, String color, String thickness, String typedefaultsgr,
-			String familiessgr, String subfamiliessgr, String microstructuresgr, String commentsgr) {
+			String familiessgr, String subfamiliessgr, String microstructuresgr, String commentsgr, int lot_idlot) {
 		super();
-		
+		this.iddefaut = iddefaut;
 		this.idantares = idantares;
 		this.progression = progression;
 		this.defaultdate = defaultdate;
@@ -69,6 +71,7 @@ public class Defaut implements Serializable {
 		this.subfamiliessgr = subfamiliessgr;
 		this.microstructuresgr = microstructuresgr;
 		this.commentsgr = commentsgr;
+		this.lot_idlot = lot_idlot;
 	}
 
 
@@ -233,6 +236,18 @@ public class Defaut implements Serializable {
 
 	public void setCommentsgr(String commentsgr) {
 		this.commentsgr = commentsgr;
+	}
+
+
+
+	public int getLot_idlot() {
+		return lot_idlot;
+	}
+
+
+
+	public void setLot_idlot(int lot_idlot) {
+		this.lot_idlot = lot_idlot;
 	}
 
 

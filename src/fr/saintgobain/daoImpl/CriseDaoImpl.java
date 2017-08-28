@@ -24,8 +24,8 @@ public class CriseDaoImpl implements CriseDao {
 	 * create crise
 	 */
 	@Override
-	public void createCrise(Crise crise) {
-		criseRepository.save(crise);
+	public Crise createCrise(Crise crise) {
+		return criseRepository.save(crise);
 	}
 
 	/**

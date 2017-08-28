@@ -36,16 +36,21 @@ public class Crise implements Serializable{
 	private String referencecrisis;
 	private String crisismemory;
 	private String crisismother;
+	private int usine_idusine;
 
 	public Crise() {
 		super();
 	}
-	
-	public Crise(String progression, String startdate, String finaldate, String nature, String familiesdefects,
-			String specialevent, int deltalossmax, int deltalossaverage, String screenshotantares, String crisiscontext,
-			String dateeventcrisis, String commentdti, String commentusine, String referencecrisis, String crisismemory,
-			String crisismother) {
+
+
+
+
+	public Crise(int idcrise, String progression, String startdate, String finaldate, String nature,
+			String familiesdefects, String specialevent, int deltalossmax, int deltalossaverage,
+			String screenshotantares, String crisiscontext, String dateeventcrisis, String commentdti,
+			String commentusine, String referencecrisis, String crisismemory, String crisismother, int usine_idusine) {
 		super();
+		this.idcrise = idcrise;
 		this.progression = progression;
 		this.startdate = startdate;
 		this.finaldate = finaldate;
@@ -62,11 +67,8 @@ public class Crise implements Serializable{
 		this.referencecrisis = referencecrisis;
 		this.crisismemory = crisismemory;
 		this.crisismother = crisismother;
-		
+		this.usine_idusine = usine_idusine;
 	}
-
-	
-	
 
 
 
@@ -215,6 +217,22 @@ public class Crise implements Serializable{
 	public void setIdcrise(int idcrise) {
 		this.idcrise = idcrise;
 	}
+
+
+
+
+	public int getUsine_idusine() {
+		return usine_idusine;
+	}
+
+
+
+
+	public void setUsine_idusine(int usine_idusine) {
+		this.usine_idusine = usine_idusine;
+	}
+
+
 
 
 

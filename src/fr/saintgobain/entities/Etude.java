@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 
 @Entity
@@ -27,8 +26,6 @@ public class Etude implements Serializable{
 	private String commentdelay;
 	private String typedefault;
 	
-	@OneToOne(mappedBy="etude")  // référence la relation dans la classe Document
-    private Document document ;
 	
 	
 	public Etude() {
@@ -45,20 +42,11 @@ public class Etude implements Serializable{
 		this.studiesdate = studiesdate;
 		this.commentdelay = commentdelay;
 		this.typedefault = typedefault;
-		this.document = document;
+		
 	}
 
 
 
-	public Document getDocument() {
-		return document;
-	}
-
-
-
-	public void setDocument(Document document) {
-		this.document = document;
-	}
 
 
 
@@ -94,11 +82,6 @@ public class Etude implements Serializable{
 	}
 
 
-	@Override
-	public String toString() {
-		return "Etude [idetude=" + idetude + ", progression=" + progression + ", studiesdate=" + studiesdate
-				+ ", commentdelay=" + commentdelay + ", typedefault=" + typedefault + ", document=" + document + "]";
-	}
 	
 	
 	
