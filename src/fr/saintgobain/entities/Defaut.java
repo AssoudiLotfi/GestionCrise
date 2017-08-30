@@ -1,7 +1,6 @@
 package fr.saintgobain.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +17,8 @@ public class Defaut implements Serializable {
 	private int iddefaut;
 	private int idantares;
 	private String progression;
-	private Date defaultdate;
-	private int alignment;
+	private String defaultdate;
+	private String alignment;
 	private String positionthickness;
 	private String positionedge;
 	private String positionleft;
@@ -46,7 +45,7 @@ public class Defaut implements Serializable {
 
 	
 	
-	public Defaut(int iddefaut, int idantares, String progression, Date defaultdate, int alignment,
+	public Defaut(int iddefaut, int idantares, String progression, String defaultdate, String alignment,
 			String positionthickness, String positionedge, String positionleft, String ag3, String ag4, String barrage,
 			int classdefault, String diagnosisfactory, String color, String thickness, String typedefaultsgr,
 			String familiessgr, String subfamiliessgr, String microstructuresgr, String commentsgr, int lot_idlot) {
@@ -102,19 +101,19 @@ public class Defaut implements Serializable {
 		this.progression = progression;
 	}
 
-	public Date getDefaultdate() {
+	public String getDefaultdate() {
 		return defaultdate;
 	}
 
-	public void setDefaultdate(Date defaultdate) {
+	public void setDefaultdate(String defaultdate) {
 		this.defaultdate = defaultdate;
 	}
 
-	public int getAlignment() {
+	public String getAlignment() {
 		return alignment;
 	}
 
-	public void setAlignment(int alignment) {
+	public void setAlignment(String alignment) {
 		this.alignment = alignment;
 	}
 

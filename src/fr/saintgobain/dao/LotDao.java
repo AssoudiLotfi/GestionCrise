@@ -6,7 +6,7 @@ import fr.saintgobain.entities.Lot;
 
 public interface LotDao {
 	
-	public void createLot(Lot Lot);
+	public Lot createLot(Lot Lot);
     public void deleteLotById(int id);
     public List<Lot> getAllLot();
     public Lot findLotById(int id);

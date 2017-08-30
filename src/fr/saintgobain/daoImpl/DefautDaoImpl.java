@@ -21,8 +21,8 @@ public class DefautDaoImpl implements DefautDao {
 	/**
 	 * create Defaut
 	 */
-	public void createDefaut(Defaut defaut) {
-		defautRepository.save(defaut);
+	public Defaut createDefaut(Defaut defaut) {
+		return defautRepository.save(defaut);
 	}
 
 	/**

@@ -21,8 +21,8 @@ public class LotDaoImpl implements LotDao {
 	/**
 	 * create Lot
 	 */
-	public void createLot(Lot lot) {
-		lotRepository.save(lot);
+	public Lot createLot(Lot lot) {
+		return lotRepository.save(lot);
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -32,7 +33,7 @@ public class DefautService {
 	@GET
 	@Path("/byLot")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Defaut> getAllLot() {
+	public List<Defaut> getAllDefaut() {
 		List<Defaut> defauts = defautDaoImpl.getAllDefaut();
 		return defauts;
 
@@ -45,5 +46,12 @@ public class DefautService {
 		
 		List<Defaut> listdefaut = defautDaoImpl.getDefautByLot(idlot);
 		return listdefaut;
+	}
+	@POST
+	@Path("/savedefaut")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Defaut saveDefaut(Defaut defaut  ){
+		
+		return defautDaoImpl.createDefaut(defaut);
 	}
 }
