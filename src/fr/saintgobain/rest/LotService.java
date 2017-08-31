@@ -3,6 +3,7 @@ package fr.saintgobain.rest;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -52,6 +53,12 @@ public class LotService {
 	public Lot saveCrise(Lot lot ){
 		
 		return lotDaoImpl.createLot(lot);
+	}
+	@DELETE
+	@Path("/byid/{idlot}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void deleteLotById(@PathParam("idlot") Integer idlot){
+		lotDaoImpl.deleteLotById(idlot);
 	}
 
 }

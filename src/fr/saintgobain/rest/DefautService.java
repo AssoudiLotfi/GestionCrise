@@ -3,6 +3,7 @@ package fr.saintgobain.rest;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -53,5 +54,11 @@ public class DefautService {
 	public Defaut saveDefaut(Defaut defaut  ){
 		
 		return defautDaoImpl.createDefaut(defaut);
+	}
+	@DELETE
+	@Path("/byid/{iddefaut}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void deleteDefautById(@PathParam("iddefaut") Integer iddefaut){
+		defautDaoImpl.deleteDefautById(iddefaut);
 	}
 }
