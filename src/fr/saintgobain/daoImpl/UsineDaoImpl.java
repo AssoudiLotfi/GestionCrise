@@ -33,6 +33,12 @@ public class UsineDaoImpl implements UsineDao{
 		Usine usine = usineRepository.findOne(id);
 		return usine;
 	}
+	
+	public Usine getUsine(int idUsine){
+		
+		Usine usine = usineRepository.getUsine(idUsine);
+		return usine;
+	}
 
 	/**
 	 * 

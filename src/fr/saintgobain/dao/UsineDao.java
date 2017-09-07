@@ -10,5 +10,6 @@ public interface UsineDao {
     public void deleteUsineById(int id);
     public List<Usine> getAllUsine();
     public Usine findUsineById(int id);
+    public Usine getUsine(int idUsine);
 
 }
